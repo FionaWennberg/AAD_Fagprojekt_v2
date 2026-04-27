@@ -1,5 +1,5 @@
-from aad_project.model import Model
-from aad_project.data import MyDataset
+from src.aad_project.model import Model
+from src.aad_project.data import MyDataset
 
 def train():
     dataset = MyDataset("data/raw")

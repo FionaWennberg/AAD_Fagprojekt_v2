@@ -30,7 +30,7 @@ from typing import Any
 
 import numpy as np
 
-from aad_project.data import ensure_dirs, load_npz_json_field
+from src.aad_project.data import ensure_dirs, load_npz_json_field
 
 
 # -----------------------------------------------------------------------------

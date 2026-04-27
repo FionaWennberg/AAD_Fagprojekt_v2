@@ -127,7 +127,7 @@ def run_subject(
                 cmd = [
                     sys.executable,
                     "-m",
-                    "models.preprocess_backward_eelbrain",
+                    "src.aad_project.preprocess_backward_eelbrain",
                     "--bidsdir",
                     str(bidsdir),
                     "--subject",
@@ -154,7 +154,7 @@ def run_subject(
                 cmd = [
                     sys.executable,
                     "-m",
-                    "models.eelbrain_backward",
+                    "src.aad_project.model",
                     "--input",
                     str(processed_file),
                     "--outdir",

@@ -29,7 +29,7 @@ import pandas as pd
 import soundfile as sf
 from scipy.signal import butter, hilbert, resample_poly, sosfiltfilt
 
-from aad_project.data import ensure_dirs, subject_id
+from src.aad_project.data import ensure_dirs, subject_id
 
 
 # -----------------------------------------------------------------------------
@@ -239,7 +239,6 @@ def extract_auditory_envelope(x: np.ndarray, fs: float, cfg: EnvelopeConfig) -> 
     env = _resample(env, fs, cfg.fs_out)
     env = _sos_filter(env, cfg.fs_out, low=cfg.hp_out, order=cfg.final_order)
     env = _sos_filter(env, cfg.fs_out, high=cfg.lp_out, order=cfg.final_order)
-
     return np.asarray(env, dtype=np.float64)
 
 

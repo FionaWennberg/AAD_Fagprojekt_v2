@@ -1,0 +1,6 @@
+numpy>=1.23
+scipy>=1.10
+pandas>=1.5
+mne>=1.5,<1.7
+soundfile>=0.12
+eelbrain>=0.40
