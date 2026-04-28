@@ -185,3 +185,6 @@ data/
 *.tar.gz
 *.zip
 *.npz
+
+# Ignore results
+results_backward/
