@@ -1,0 +1,9 @@
+# requiremtns is used for creating environrment on HPC
+
+
+numpy
+scipy
+pandas
+mne
+soundfile
+eelbrain
