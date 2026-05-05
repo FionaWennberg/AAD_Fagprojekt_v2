@@ -27,5 +27,13 @@
 #BSUB -o Output_%J.out 
 #BSUB -e Output_%J.err 
 
-# here follow the commands you want to execute with input.in as the input file
-myapplication.x input.in > output.out
+cd /work3/s223643/AAD_FAGPROJEKT_V2
+module load python/3.10
+source venv/bin/activate
+
+python scripts/run_all_subjects.py \
+  --bidsdir data/raw/ds-eeg-snhl \
+  --processed-dir data/processed \
+  --results-dir results_backward \
+  --step both \
+  --max-workers 4
