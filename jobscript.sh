@@ -11,7 +11,7 @@
 ### -- specify that we need 4GB of memory per core/slot -- 
 #BSUB -R "rusage[mem=8GB]"
 ### -- specify that we want the job to get killed if it exceeds 5 GB per core/slot -- 
-#BSUB -M 10GB
+#BSUB -M 8GB
 ### -- set walltime limit: hh:mm -- 
 #BSUB -W 24:00 
 ### -- set the email address -- 
