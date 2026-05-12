@@ -12,6 +12,8 @@ The directory structure of the project looks like this:
 │   └── workflows/
 │       └── tests.yaml
 ├── configs/                  # Configuration files
+├── scripts/                     # Data directory
+│   └── run_all_subjects.py
 ├── data/                     # Data directory
 │   ├── processed
 │   └── raw
@@ -24,15 +26,17 @@ The directory structure of the project looks like this:
 │       └── index.md
 ├── models/                   # Trained models
 ├── notebooks/                # Jupyter notebooks
+    └──  statistics.ipynb
 ├── reports/                  # Reports
 │   └── figures/
 ├── src/                      # Source code
-│   ├── project_name/
+│   ├── aad_project/
 │   │   ├── __init__.py
 │   │   ├── api.py
 │   │   ├── data.py
 │   │   ├── evaluate.py
-│   │   ├── models.py
+│   │   ├── model.py
+│   │   ├── preprocess_backward_eelbrain.py
 │   │   ├── train.py
 │   │   └── visualize.py
 └── tests/                    # Tests
