@@ -354,7 +354,7 @@ def resolve_audio_path(
     else:
         raise ValueError(f"Unknown audio variant: {variant}")
 
-    subject_dirs = [bidsdir / "stimuli_audio" / v / folder for v in _subject_variants(subject)]
+    subject_dirs = [bidsdir / "stimuli" / v / folder for v in _subject_variants(subject)]
 
     for sdir in subject_dirs:
         for name in candidate_names:
