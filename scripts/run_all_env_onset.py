@@ -1,41 +1,36 @@
 from __future__ import annotations
 
 """
-Run the envelope+onset backward mTRF model for multiple subjects.
+Run the full envelope+onset backward mTRF pipeline for multiple subjects.
 
-This is the run-all file for the new model pipeline:
+This runner does BOTH steps:
 
-    preprocessed file:
+    1. Preprocess raw EEG/audio into:
         data/processed/sub-004_mtrf_env_onset.npz
 
-    model file:
-        src/aad_project/model_env_onset.py
+    2. Train the backward mTRF model:
+        EEG -> [envelope, onset]
 
-It does NOT run preprocessing.
-It assumes that the new preprocessing file has already created the combined
-envelope+onset .npz files.
+Important:
+    This version matches your current preprocessing script, which expects:
+        --bidsdir
+        --subject
+        --out
+
+    NOT:
+        --processed-dir
 
 Place this file here:
+    scripts/run_all_env_onset_pipeline.py
 
-    scripts/run_all_env_onset.py
-
-Example
--------
-From the project root:
-
-python scripts/run_all_env_onset.py ^
-  --processed-dir data/processed ^
-  --results-dir results_env_onset ^
-  --subjects 1 2 3 4 ^
-  --max-workers 4
-
-On Linux / HPC:
-
-python scripts/run_all_env_onset.py \
-  --processed-dir data/processed \
-  --results-dir results_env_onset \
-  --subjects 1 2 3 4 \
-  --max-workers 4
+Windows example:
+    python scripts/run_all_env_onset_pipeline.py ^
+      --bidsdir C:/subset/ds-eeg-snhl ^
+      --processed-dir data/processed ^
+      --results-dir results_env_onset ^
+      --subjects 4 ^
+      --step both ^
+      --max-workers 1
 """
 
 import argparse
@@ -46,59 +41,99 @@ from pathlib import Path
 
 
 def subject_id(subject: int | str) -> str:
-    """Return subject id in the form sub-004."""
     digits = "".join(ch for ch in str(subject) if ch.isdigit())
     if not digits:
         raise ValueError(f"Could not parse subject id from {subject!r}")
     return f"sub-{int(digits):03d}"
 
 
-def expected_input_file(processed_dir: Path, subject: int | str) -> Path:
-    """
-    The new preprocessing should save one combined file with a unique name,
-    so it does not overwrite the baseline envelope-only file.
-    """
+def expected_preprocessed_file(processed_dir: Path, subject: int | str) -> Path:
+    return processed_dir / f"{subject_id(subject)}_mtrf_env_onset.npz"
+
+
+def expected_summary_file(results_dir: Path, subject: int | str) -> Path:
     sid = subject_id(subject)
-    return processed_dir / f"{sid}_mtrf_env_onset.npz"
+    return results_dir / sid / f"{sid}_backward_mtrf_env_onset.summary.json"
 
 
-def run_subject(
+def run_command(cmd: list[str]) -> tuple[bool, str]:
+    try:
+        completed = subprocess.run(cmd, check=True, capture_output=True, text=True)
+        msg = completed.stdout.strip()
+        if completed.stderr.strip():
+            msg += "\nSTDERR:\n" + completed.stderr.strip()
+        return True, msg
+    except subprocess.CalledProcessError as exc:
+        return (
+            False,
+            f"Command failed:\n{' '.join(cmd)}\n\nSTDOUT:\n{exc.stdout}\n\nSTDERR:\n{exc.stderr}",
+        )
+
+
+def preprocess_subject(
     subject: int,
+    bidsdir: Path,
     processed_dir: Path,
+    python_executable: str,
+    audio_variant: str,
+    n_bands: int,
+    audio_work_fs: float,
+    overwrite: bool,
+) -> tuple[bool, str, Path]:
+    sid = subject_id(subject)
+    out_path = expected_preprocessed_file(processed_dir, subject)
+
+    if out_path.exists() and not overwrite:
+        return True, f"Preprocessing skipped for {sid}: {out_path} already exists", out_path
+
+    # Your preprocessing script expects --out, not --processed-dir
+    cmd = [
+        python_executable,
+        "-m",
+        "src.aad_project.preprocess_mtrf_envelope_onsets",
+        "--bidsdir",
+        str(bidsdir),
+        "--subject",
+        str(subject),
+        "--out",
+        str(out_path),
+        "--audio-variant",
+        audio_variant,
+        "--n-bands",
+        str(n_bands),
+        "--audio-work-fs",
+        str(audio_work_fs),
+    ]
+
+    ok, msg = run_command(cmd)
+
+    if ok and not out_path.exists():
+        return (
+            False,
+            f"Preprocessing finished for {sid}, but expected output was not found:\n{out_path}\n\nOutput:\n{msg}",
+            out_path,
+        )
+
+    return ok, msg, out_path
+
+
+def model_subject(
+    subject: int,
+    input_path: Path,
     results_dir: Path,
     python_executable: str,
     score_mode: str,
     error: str,
     overwrite: bool,
-) -> tuple[int, bool, str]:
-    """
-    Run model_env_onset for one subject.
-
-    Returns
-    -------
-    subject, success, message
-    """
+) -> tuple[bool, str]:
     sid = subject_id(subject)
-    input_path = expected_input_file(processed_dir, subject)
-
     subject_results_dir = results_dir / sid
     subject_results_dir.mkdir(parents=True, exist_ok=True)
 
-    summary_path = subject_results_dir / f"{sid}_backward_mtrf_env_onset.summary.json"
-
-    if not input_path.exists():
-        return (
-            subject,
-            False,
-            f"Missing preprocessing file for {sid}: {input_path}",
-        )
+    summary_path = expected_summary_file(results_dir, subject)
 
     if summary_path.exists() and not overwrite:
-        return (
-            subject,
-            True,
-            f"Skipped {sid}: result already exists at {summary_path}",
-        )
+        return True, f"Model skipped for {sid}: {summary_path} already exists"
 
     cmd = [
         python_executable,
@@ -116,86 +151,83 @@ def run_subject(
         error,
     ]
 
-    try:
-        completed = subprocess.run(
-            cmd,
-            check=True,
-            capture_output=True,
-            text=True,
+    return run_command(cmd)
+
+
+def run_subject(
+    subject: int,
+    bidsdir: Path,
+    processed_dir: Path,
+    results_dir: Path,
+    python_executable: str,
+    step: str,
+    audio_variant: str,
+    n_bands: int,
+    audio_work_fs: float,
+    score_mode: str,
+    error: str,
+    overwrite: bool,
+) -> tuple[int, bool, str]:
+    sid = subject_id(subject)
+    messages: list[str] = []
+    input_path = expected_preprocessed_file(processed_dir, subject)
+
+    if step in {"preprocess", "both"}:
+        ok, msg, input_path = preprocess_subject(
+            subject=subject,
+            bidsdir=bidsdir,
+            processed_dir=processed_dir,
+            python_executable=python_executable,
+            audio_variant=audio_variant,
+            n_bands=n_bands,
+            audio_work_fs=audio_work_fs,
+            overwrite=overwrite,
         )
+        messages.append("PREPROCESS:\n" + msg)
+        if not ok:
+            return subject, False, "\n\n".join(messages)
 
-        msg = completed.stdout.strip()
-        if completed.stderr.strip():
-            msg += "\nSTDERR:\n" + completed.stderr.strip()
+    if step in {"model", "both"}:
+        if not input_path.exists():
+            messages.append(f"MODEL:\nMissing preprocessed input for {sid}: {input_path}")
+            return subject, False, "\n\n".join(messages)
 
-        return subject, True, msg
-
-    except subprocess.CalledProcessError as exc:
-        msg = (
-            f"Command failed for {sid}\n"
-            f"Command: {' '.join(cmd)}\n\n"
-            f"STDOUT:\n{exc.stdout}\n\n"
-            f"STDERR:\n{exc.stderr}"
+        ok, msg = model_subject(
+            subject=subject,
+            input_path=input_path,
+            results_dir=results_dir,
+            python_executable=python_executable,
+            score_mode=score_mode,
+            error=error,
+            overwrite=overwrite,
         )
-        return subject, False, msg
+        messages.append("MODEL:\n" + msg)
+        if not ok:
+            return subject, False, "\n\n".join(messages)
+
+    return subject, True, "\n\n".join(messages)
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Run backward mTRF envelope+onset model for multiple subjects"
+        description="Run full envelope+onset preprocessing and backward mTRF model for multiple subjects"
     )
 
-    parser.add_argument(
-        "--processed-dir",
-        type=Path,
-        required=True,
-        help="Directory containing sub-XXX_mtrf_env_onset.npz files",
-    )
-    parser.add_argument(
-        "--results-dir",
-        type=Path,
-        required=True,
-        help="Directory where model results should be saved",
-    )
-    parser.add_argument(
-        "--subjects",
-        type=int,
-        nargs="+",
-        required=True,
-        help="Subject numbers, e.g. --subjects 1 2 3 4",
-    )
-    parser.add_argument(
-        "--max-workers",
-        type=int,
-        default=1,
-        help="Number of subjects to process in parallel",
-    )
-    parser.add_argument(
-        "--python",
-        type=str,
-        default=sys.executable,
-        help="Python executable to use. Defaults to current environment.",
-    )
-    parser.add_argument(
-        "--score-mode",
-        choices=["mean", "weighted", "env_only"],
-        default="mean",
-        help=(
-            "How model_env_onset combines envelope and onset correlations. "
-            "mean is recommended for the first experiment."
-        ),
-    )
-    parser.add_argument(
-        "--error",
-        choices=["l1", "l2"],
-        default="l2",
-        help="Eelbrain boosting error metric",
-    )
-    parser.add_argument(
-        "--overwrite",
-        action="store_true",
-        help="Rerun subjects even if summary result already exists",
-    )
+    parser.add_argument("--bidsdir", type=Path, required=True)
+    parser.add_argument("--processed-dir", type=Path, required=True)
+    parser.add_argument("--results-dir", type=Path, required=True)
+    parser.add_argument("--subjects", type=int, nargs="+", required=True)
+    parser.add_argument("--step", choices=["preprocess", "model", "both"], default="both")
+    parser.add_argument("--max-workers", type=int, default=1)
+    parser.add_argument("--python", type=str, default=sys.executable)
+
+    parser.add_argument("--audio-variant", choices=["plain", "woa", "woacontrol"], default="plain")
+    parser.add_argument("--n-bands", type=int, default=16)
+    parser.add_argument("--audio-work-fs", type=float, default=16000.0)
+
+    parser.add_argument("--score-mode", choices=["mean", "weighted", "env_only"], default="mean")
+    parser.add_argument("--error", choices=["l1", "l2"], default="l2")
+    parser.add_argument("--overwrite", action="store_true")
 
     return parser.parse_args()
 
@@ -203,22 +235,27 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
 
+    args.processed_dir.mkdir(parents=True, exist_ok=True)
     args.results_dir.mkdir(parents=True, exist_ok=True)
 
-    print("Running envelope+onset backward mTRF pipeline")
+    print("Running full envelope+onset backward mTRF pipeline")
+    print(f"bidsdir       = {args.bidsdir}")
     print(f"processed_dir = {args.processed_dir}")
     print(f"results_dir   = {args.results_dir}")
     print(f"subjects      = {args.subjects}")
+    print(f"step          = {args.step}")
     print(f"max_workers   = {args.max_workers}")
     print(f"python        = {args.python}")
-    print(f"score_mode    = {args.score_mode}")
-    print(f"error         = {args.error}")
 
-    # First show which files will be used. This helps catch naming mistakes.
-    print("\nInput files:")
+    print("\nExpected preprocessed files:")
     for subject in args.subjects:
-        path = expected_input_file(args.processed_dir, subject)
-        status = "OK" if path.exists() else "MISSING"
+        path = expected_preprocessed_file(args.processed_dir, subject)
+        if path.exists():
+            status = "EXISTS"
+        elif args.step in {"preprocess", "both"}:
+            status = "WILL CREATE"
+        else:
+            status = "MISSING"
         print(f"  {subject_id(subject)}: {path} [{status}]")
 
     failures: list[tuple[int, str]] = []
@@ -227,29 +264,36 @@ def main() -> None:
         for subject in args.subjects:
             sub, success, msg = run_subject(
                 subject=subject,
+                bidsdir=args.bidsdir,
                 processed_dir=args.processed_dir,
                 results_dir=args.results_dir,
                 python_executable=args.python,
+                step=args.step,
+                audio_variant=args.audio_variant,
+                n_bands=args.n_bands,
+                audio_work_fs=args.audio_work_fs,
                 score_mode=args.score_mode,
                 error=args.error,
                 overwrite=args.overwrite,
             )
-
             print(f"\n========== {subject_id(sub)} ==========")
             print(msg)
-
             if not success:
                 failures.append((sub, msg))
-
     else:
         with ProcessPoolExecutor(max_workers=args.max_workers) as executor:
             futures = [
                 executor.submit(
                     run_subject,
                     subject,
+                    args.bidsdir,
                     args.processed_dir,
                     args.results_dir,
                     args.python,
+                    args.step,
+                    args.audio_variant,
+                    args.n_bands,
+                    args.audio_work_fs,
                     args.score_mode,
                     args.error,
                     args.overwrite,
@@ -259,14 +303,12 @@ def main() -> None:
 
             for future in as_completed(futures):
                 sub, success, msg = future.result()
-
                 print(f"\n========== {subject_id(sub)} ==========")
                 print(msg)
-
                 if not success:
                     failures.append((sub, msg))
 
-    print("\nFinished envelope+onset model run.")
+    print("\nFinished full envelope+onset pipeline.")
     print(f"Successful subjects: {len(args.subjects) - len(failures)} / {len(args.subjects)}")
 
     if failures:
@@ -274,7 +316,6 @@ def main() -> None:
         for sub, msg in failures:
             first_line = msg.splitlines()[0] if msg else "Unknown error"
             print(f"  {subject_id(sub)}: {first_line}")
-
         raise SystemExit(1)
 
 
