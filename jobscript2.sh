@@ -24,7 +24,7 @@
 #BSUB -o Output_%J.out 
 #BSUB -e Output_%J.err 
 
-cd /work3/s223643/AAD_Fagprojekt_v2
+cd /work3/s246024/AAD_Fagprojekt_v2
 # module load python/3.11.9
 source ../venv/bin/activate
 
