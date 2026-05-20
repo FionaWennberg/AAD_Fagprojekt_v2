@@ -180,18 +180,20 @@ def _truncate_all_trials(
     return out_att, out_ign, out_resp
 
 
-def _get_cross_prediction(result: Any) -> eb.NDVar:
+def _get_cross_prediction(result: Any, x: eb.NDVar) -> eb.NDVar:
     if hasattr(result, "cross_predict"):
         try:
-            return result.cross_predict(scale="original")
+            return result.cross_predict(x, scale="original")
         except TypeError:
-            return result.cross_predict()
+            return result.cross_predict(x)
+
     if hasattr(result, "y_pred"):
         return result.y_pred
+
     if hasattr(result, "prediction"):
         return result.prediction
-    raise AttributeError("Could not find cross-validated predictions on Eelbrain result.")
 
+    raise AttributeError("Could not find cross-validated predictions on Eelbrain result.")
 
 def _feature_score(r_att: np.ndarray, r_ign: np.ndarray, mode: str, weights: tuple[float, float]) -> float:
     diff = np.asarray(r_att, dtype=np.float64) - np.asarray(r_ign, dtype=np.float64)
@@ -220,20 +222,21 @@ def fit_one_feature_backward(
     partitions = cfg.partitions if cfg.partitions is not None else len(eeg_trials)
 
     result = eb.boosting(
-        y,
-        eeg,
-        cfg.tstart,
-        cfg.tstop,
-        basis=cfg.basis,
-        basis_window=cfg.basis_window,
-        test=cfg.test,
-        partitions=partitions,
-        error=cfg.error,
-        selective_stopping=cfg.selective_stopping,
-        scale_data=cfg.scale_data,
-    )
+    y,
+    eeg,
+    cfg.tstart,
+    cfg.tstop,
+    basis=cfg.basis,
+    basis_window=cfg.basis_window,
+    test=cfg.test,
+    partitions=partitions,
+    partition_results=True,
+    error=cfg.error,
+    selective_stopping=cfg.selective_stopping,
+    scale_data=cfg.scale_data,
+)
 
-    y_hat = np.asarray(_get_cross_prediction(result).x, dtype=np.float64)
+    y_hat = np.asarray(_get_cross_prediction(result, eeg).x, dtype=np.float64)
     return result, y_hat
 
 
