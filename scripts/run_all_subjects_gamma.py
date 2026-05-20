@@ -133,7 +133,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--preprocess-script",
         type=Path,
-        default=Path("scripts/Preprocess_gamma_eelbrain.py"),
+        default=Path("scripts/preprocess_gamma_eelbrain.py"),
         help="Script that creates subject-level gamma .npz files",
     )
     parser.add_argument(
