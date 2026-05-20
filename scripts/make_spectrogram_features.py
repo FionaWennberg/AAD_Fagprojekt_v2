@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from src.aad_project.spectrogram_feature import save_gammatone_features
+from src.aad_project.spectrogram_features import save_gammatone_features
 
 
 def find_wav_files(stimdir: Path) -> list[Path]:
