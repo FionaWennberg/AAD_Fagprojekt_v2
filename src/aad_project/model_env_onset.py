@@ -118,14 +118,46 @@ def _make_case_time_ndvar_1d(trials: list[np.ndarray], fs: float, name: str) -> 
     return eb.NDVar(data, (case, time), name=name)
 
 
-def _make_case_time_sensor_ndvar(trials: list[np.ndarray], fs: float, name: str) -> eb.NDVar:
-    shapes = [t.shape for t in trials]
-    if len(set(shapes)) != 1:
-        raise ValueError(f"{name} trials have unequal shapes after truncation.")
-    data = np.stack([np.asarray(t, dtype=np.float64) for t in trials], axis=0)
-    case = eb.Case(len(trials))
-    time = eb.UTS(0.0, 1.0 / fs, data.shape[1])
-    sensor = eb.Sensor.from_names([f"EEG{i:03d}" for i in range(data.shape[2])])
+# def _make_case_time_sensor_ndvar(trials: list[np.ndarray], fs: float, name: str) -> eb.NDVar:
+#     shapes = [t.shape for t in trials]
+#     if len(set(shapes)) != 1:
+#         raise ValueError(f"{name} trials have unequal shapes after truncation.")
+#     data = np.stack([np.asarray(t, dtype=np.float64) for t in trials], axis=0)
+#     case = eb.Case(len(trials))
+#     time = eb.UTS(0.0, 1.0 / fs, data.shape[1])
+#     sensor = eb.Sensor.from_names([f"EEG{i:03d}" for i in range(data.shape[2])])
+#     return eb.NDVar(data, (case, time, sensor), name=name)
+
+def _make_case_time_sensor_ndvar(data: np.ndarray, fs: float, name: str = "eeg"):
+    """
+    Convert EEG trials to an Eelbrain NDVar with dimensions:
+        case x time x sensor
+
+    data shape must be:
+        (n_trials, n_times, n_channels)
+    """
+    data = np.asarray(data, dtype=float)
+
+    if data.ndim != 3:
+        raise ValueError(
+            f"Expected EEG data with shape (trials, time, channels), got {data.shape}"
+        )
+
+    n_trials, n_times, n_channels = data.shape
+
+    case = eb.Case(n_trials)
+    time = eb.UTS(0, 1 / fs, n_times)
+
+    sensor_names = [f"EEG{i:03d}" for i in range(n_channels)]
+
+    # Compatibility fix:
+    # Some Eelbrain versions do not have eb.Sensor.from_names().
+    # A categorical sensor dimension is enough for boosting/decoding.
+    try:
+        sensor = eb.Sensor.from_names(sensor_names)
+    except AttributeError:
+        sensor = eb.Categorial("sensor", sensor_names)
+
     return eb.NDVar(data, (case, time, sensor), name=name)
 
 
