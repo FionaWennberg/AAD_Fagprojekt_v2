@@ -4,3 +4,10 @@ pandas>=1.5
 mne>=1.5,<1.7
 soundfile>=0.12
 eelbrain>=0.40
+statsmodels
+pymer4
+rpy2
+great_tables
+formulae
+polars
+pyarrow

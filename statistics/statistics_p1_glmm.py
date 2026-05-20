@@ -1,11 +1,11 @@
 import numpy as np
 import pandas as pd
+import polars as pl
 from pymer4.models import glmer
 
 # --------------------------------------------------
 # 1. Load data
 # --------------------------------------------------
-# Replace with your own file path
 df = pd.read_csv("aad_trial_level_results.csv")
 
 # Expected columns:
@@ -53,7 +53,16 @@ print("\nMean raw accuracy by group:")
 print(df.groupby("group_HI")["correct"].mean().rename({0: "NH", 1: "HI"}))
 
 # --------------------------------------------------
-# 3. Fit mixed-effects logistic regression
+# 3. Convert pandas DataFrame to Polars for pymer4
+# --------------------------------------------------
+# Newer pymer4 versions expect Polars DataFrames internally.
+# If we pass pandas directly, pymer4 can crash with:
+# AttributeError: 'DataFrame' object has no attribute 'unique'
+
+df_r = pl.from_pandas(df)
+
+# --------------------------------------------------
+# 4. Fit mixed-effects logistic regression
 # --------------------------------------------------
 # Model:
 #   correct ~ group_HI + (1 | subject)
@@ -62,10 +71,13 @@ print(df.groupby("group_HI")["correct"].mean().rename({0: "NH", 1: "HI"}))
 #   Intercept = log-odds of correct decoding for NH (group_HI = 0)
 #   group_HI  = change in log-odds for HI relative to NH
 
+print("\nFitting GLMM")
+print("------------")
+
 model = glmer(
     "correct ~ group_HI + (1 | subject)",
-    data=df,
-    family="binomial"
+    data=df_r,
+    family="binomial",
 )
 
 # Fit model
@@ -77,45 +89,80 @@ print("-------------")
 print(model.result_fit)
 
 # --------------------------------------------------
-# 4. Extract fixed effects table
+# 5. Extract fixed effects table
 # --------------------------------------------------
-# pymer4 stores the fitted summary table in result_fit
-# We'll try to extract the row for group_HI
 fixed_effects = model.result_fit
+
+# pymer4 may return a Polars DataFrame, so convert to pandas
+# for easier filtering and saving.
+if hasattr(fixed_effects, "to_pandas"):
+    fixed_effects = fixed_effects.to_pandas()
+else:
+    fixed_effects = pd.DataFrame(fixed_effects)
 
 print("\nFIXED EFFECTS TABLE")
 print("-------------------")
 print(fixed_effects)
 
 # --------------------------------------------------
-# 5. Compute odds ratio for the group effect
+# 6. Compute odds ratio for the group effect
 # --------------------------------------------------
-# We expect a row named "group_HI"
-# Depending on pymer4 version, column names are usually lower-case-ish
-# We'll search robustly.
+# We expect a row named "group_HI".
+# Depending on pymer4 version, column names can vary, so we search robustly.
 
 term_col = None
 for c in fixed_effects.columns:
-    if str(c).lower() in {"term", "effect", "name"}:
+    if str(c).lower() in {"term", "effect", "name", "predictor"}:
         term_col = c
         break
 
 if term_col is None:
-    raise ValueError("Could not find the term/effect column in model.result_fit.")
+    raise ValueError(
+        "Could not find the term/effect column in model.result_fit. "
+        f"Available columns are: {list(fixed_effects.columns)}"
+    )
 
 group_row = fixed_effects[fixed_effects[term_col].astype(str) == "group_HI"]
+
 if len(group_row) != 1:
-    raise ValueError("Could not uniquely identify the group_HI row in fixed effects table.")
+    raise ValueError(
+        "Could not uniquely identify the group_HI row in fixed effects table. "
+        f"Available terms are: {fixed_effects[term_col].astype(str).tolist()}"
+    )
 
 group_row = group_row.iloc[0]
 
 # Try common column names
-estimate_col = next((c for c in fixed_effects.columns if str(c).lower() == "estimate"), None)
-se_col = next((c for c in fixed_effects.columns if str(c).lower() in {"se", "std.error", "std_error"}), None)
-z_col = next((c for c in fixed_effects.columns if "z" in str(c).lower()), None)
-p_col = next((c for c in fixed_effects.columns if str(c).lower() in {"p", "p-val", "pvalue", "p_value"}), None)
-ci_low_col = next((c for c in fixed_effects.columns if "ci-low" in str(c).lower() or "2.5" in str(c).lower()), None)
-ci_high_col = next((c for c in fixed_effects.columns if "ci-high" in str(c).lower() or "97.5" in str(c).lower()), None)
+estimate_col = next(
+    (c for c in fixed_effects.columns if str(c).lower() in {"estimate", "b", "beta"}),
+    None,
+)
+se_col = next(
+    (c for c in fixed_effects.columns if str(c).lower() in {"se", "std.error", "std_error"}),
+    None,
+)
+z_col = next(
+    (c for c in fixed_effects.columns if "z" in str(c).lower()),
+    None,
+)
+p_col = next(
+    (c for c in fixed_effects.columns if str(c).lower() in {"p", "p-val", "pvalue", "p_value", "p.value"}),
+    None,
+)
+ci_low_col = next(
+    (c for c in fixed_effects.columns if "ci-low" in str(c).lower() or "2.5" in str(c).lower()),
+    None,
+)
+ci_high_col = next(
+    (c for c in fixed_effects.columns if "ci-high" in str(c).lower() or "97.5" in str(c).lower()),
+    None,
+)
+
+if estimate_col is None:
+    raise ValueError(
+        "Could not find estimate column in fixed effects table. "
+        f"Available columns are: {list(fixed_effects.columns)}"
+    )
 
 beta = float(group_row[estimate_col])
 odds_ratio = np.exp(beta)
@@ -141,20 +188,27 @@ if ci_low_col is not None and ci_high_col is not None:
     print(f"95% CI (odds ratio): [{np.exp(ci_low):.4f}, {np.exp(ci_high):.4f}]")
 
 # --------------------------------------------------
-# 6. Predicted probabilities for NH and HI
+# 7. Predicted probabilities for NH and HI
 # --------------------------------------------------
 # These are easier to report than log-odds.
+
 pred_df = model.empredict({"group_HI": [0, 1]})
+
+# Convert to pandas if needed
+if hasattr(pred_df, "to_pandas"):
+    pred_df = pred_df.to_pandas()
+else:
+    pred_df = pd.DataFrame(pred_df)
 
 print("\nPREDICTED PROBABILITIES")
 print("-----------------------")
 print(pred_df)
 
 # --------------------------------------------------
-# 7. Save outputs for reporting
+# 8. Save outputs for reporting
 # --------------------------------------------------
-fixed_effects.to_csv("glmm_fixed_effects.csv", index=False)
-pred_df.to_csv("glmm_predicted_probabilities.csv", index=False)
+fixed_effects.to_csv("statistics/glmm_fixed_effects.csv", index=False)
+pred_df.to_csv("statistics/glmm_predicted_probabilities.csv", index=False)
 
 # Optional: subject-level raw accuracies for descriptive plotting
 subject_acc = (
@@ -162,7 +216,7 @@ subject_acc = (
       .mean()
       .rename(columns={"correct": "mean_accuracy"})
 )
-subject_acc.to_csv("subject_level_mean_accuracy.csv", index=False)
+subject_acc.to_csv("statistics/subject_level_mean_accuracy.csv", index=False)
 
 print("\nSaved:")
 print("  glmm_fixed_effects.csv")
