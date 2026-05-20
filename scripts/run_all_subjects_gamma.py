@@ -127,7 +127,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--make-features-script",
         type=Path,
-        default=Path("scripts/Make_spectrogram_features.py"),
+        default=Path("scripts/make_spectrogram_features.py"),
         help="Script that creates WAV-level gamma spectrogram features",
     )
     parser.add_argument(
