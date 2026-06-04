@@ -311,11 +311,13 @@ def extract_eeg_trials(raw: mne.io.BaseRaw, target_events: pd.DataFrame, cfg: EE
 
     for _, row in target_events.iterrows():
         sample = int(round(float(row["sample"]) * (fs / 512.0))) if fs != 512.0 else int(row["sample"])
-        start = sample - int(round(5 * fs))
+        start = sample
         stop = sample + int(round(50 * fs))
 
         if start < 0 or stop > len(data):
             continue
+        
+        # Now crop 6–43 seconds after target onset
 
         trial = data[start:stop]
         trial = crop_toi_1d(trial, fs, cfg.crop_tmin, cfg.crop_tmax)

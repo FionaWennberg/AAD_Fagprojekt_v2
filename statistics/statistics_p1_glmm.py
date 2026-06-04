@@ -6,7 +6,7 @@ from pymer4.models import glmer
 # --------------------------------------------------
 # 1. Load data
 # --------------------------------------------------
-df = pd.read_csv("aad_trial_level_results.csv")
+df = pd.read_csv("statistics/aad_trial_level_results.csv")
 
 # Expected columns:
 #   subject   : subject ID (string)
