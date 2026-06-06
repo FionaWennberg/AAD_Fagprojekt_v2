@@ -35,7 +35,7 @@ python scripts/run_all_subjects.py \
   --bidsdir /work3/jhjort/ds-eeg-snhl \
   --processed-dir data/processed \
   --results-dir results_backward \
-  --subjects 28 \
+  --subjects 15 16 17 18 19 20 21 22 23 24 25 26 27 29 \
   --step both \
   --max-workers 4 \
   --overwrite
