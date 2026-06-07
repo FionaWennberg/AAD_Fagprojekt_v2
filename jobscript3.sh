@@ -34,14 +34,13 @@ export MKL_NUM_THREADS=1
 export OPENBLAS_NUM_THREADS=1
 export NUMEXPR_NUM_THREADS=1
 
-python scripts/run_all_subjects_gamma.py \
-  --bidsdir /work3/jhjort/ds-eeg-snhl \
+python scripts/run_all_gamma_pipeline_updated.py \
   --stimdir /work3/jhjort/ds-eeg-snhl/stimuli \
+  --base-processed-dir data/processed/env_onset \
   --spectrogram-dir data/processed/gamma/features \
   --processed-dir data/processed/gamma \
   --results-dir results_gamma \
-  --subjects 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 \
+  --subjects 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 \
   --step all \
   --max-workers 4 \
-  --audio-variant plain \
-  --timing
+  --overwrite
