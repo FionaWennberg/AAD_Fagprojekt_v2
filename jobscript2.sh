@@ -24,24 +24,20 @@
 #BSUB -o Output_%J.out 
 #BSUB -e Output_%J.err 
 
+set -e
+
 cd /work3/s246024/AAD_Fagprojekt_v2
 # module load python/3.11.9
 source ../venv/bin/activate
 
-export PYTHONPATH=/work3/s246024/AAD_Fagprojekt_v2:$PYTHONPATH
-
-for SUBJECT in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44
-do
-  python src/aad_project/preprocess_mtrf_envelope_onsets.py \
-    --bidsdir /work3/jhjort/ds-eeg-snhl \
-    --subject $SUBJECT \
-    --out data/processed/env_onset/sub-$(printf "%03d" $SUBJECT)_mtrf_env_onset.npz
-done
+export PYTHONPATH=/work3/s223643/AAD_Fagprojekt_v2:$PYTHONPATH
 
 python scripts/run_all_env_onset.py \
+  --bidsdir /work3/jhjort/ds-eeg-snhl \
   --processed-dir data/processed/env_onset \
   --results-dir results_env_onset \
-  --subjects 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 \
+  --subjects 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 \
+  --step both \
   --max-workers 4 \
   --score-mode mean \
   --error l2 \
