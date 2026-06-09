@@ -139,7 +139,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--model-script",
         type=Path,
-        default=Path("scripts/mtrf_gamma_eelbrain.py"),
+        default=Path("src/aad_project/mtrf_gamma_eelbrain.py"),
         help="Script that runs the backward gamma Eelbrain decoder",
     )
 
