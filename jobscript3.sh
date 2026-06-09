@@ -34,7 +34,7 @@ export MKL_NUM_THREADS=1
 export OPENBLAS_NUM_THREADS=1
 export NUMEXPR_NUM_THREADS=1
 
-python scripts/run_all_gamma_pipeline_updated.py \
+python scripts/run_all_subjects_gamma.py \
   --stimdir /work3/jhjort/ds-eeg-snhl/stimuli \
   --base-processed-dir data/processed/env_onset \
   --spectrogram-dir data/processed/gamma/features \
