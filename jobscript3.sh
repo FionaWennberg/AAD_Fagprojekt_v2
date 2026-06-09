@@ -24,9 +24,9 @@
 #BSUB -o Output_%J.out 
 #BSUB -e Output_%J.err 
 
-cd /work3/s246024/AAD_Fagprojekt_v2
+cd /work3/s223643/AAD_Fagprojekt_v2
 
-source /work3/s246024/venv/bin/activate
+source /work3/s223643/venv/bin/activate
 
 export PYTHONPATH="$PWD:$PYTHONPATH"
 export OMP_NUM_THREADS=1
