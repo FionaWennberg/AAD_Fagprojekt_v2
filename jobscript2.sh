@@ -36,7 +36,7 @@ python scripts/run_all_env_onset.py \
   --bidsdir /work3/jhjort/ds-eeg-snhl \
   --processed-dir data/processed/env_onset \
   --results-dir results_env_onset \
-  --subjects 31 32 33 34 35 36 37 38 39 40 41 42 43 44 \
+  --subjects 13 14 15 27 28 29 30 44 \
   --step both \
   --max-workers 4 \
   --score-mode mean \
