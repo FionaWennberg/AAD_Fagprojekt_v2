@@ -188,6 +188,6 @@ data/
 
 # Ignore results
 results_backward/
-results_env_onset/
+results_env_onset/*
 results_gamma/
 data/processed/
