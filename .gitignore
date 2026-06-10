@@ -188,11 +188,6 @@ data/
 
 # Ignore results
 results_backward/
-
-echo "Output_*.out" >> .gitignore
-echo "Output_*.err" >> .gitignore
-echo "NONAME_*.out" >> .gitignore
-echo "results_backward/" >> .gitignore
-echo "results_env_onset/" >> .gitignore
-echo "results_gamma/" >> .gitignore
-echo "data/processed/" >> .gitignore
+results_env_onset/
+results_gamma/
+data/processed/

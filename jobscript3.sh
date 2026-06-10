@@ -40,7 +40,7 @@ python scripts/run_all_subjects_gamma.py \
   --spectrogram-dir data/processed/gamma/features \
   --processed-dir data/processed/gamma \
   --results-dir results_gamma \
-  --subjects 31 32 33 34 35 36 37 38 39 40 41 42 43 \
+  --subjects 1 2 3 4 5 6 7 8 9 10 11 12 \
   --step all \
   --max-workers 4 \
   --overwrite
