@@ -1,24 +1,41 @@
 from __future__ import annotations
 
 """
-Run the full gamma/gammatone spectrogram AAD pipeline for all subjects.
+Run the full gamma/gammatone spectrogram AAD pipeline for one or more subjects.
+
+Important
+---------
+This wrapper matches the CURRENT command-line interface of:
+
+    scripts/Preprocess_gamma_eelbrain.py
+
+which expects:
+
+    --input
+    --spectrogram-dir
+    --outdir
+
+It does NOT pass --bidsdir, --processed-dir, --subject, or --audio-variant
+to Preprocess_gamma_eelbrain.py, because your manual test showed that those
+arguments are not supported by that script.
 
 Pipeline
 --------
 1. Make_spectrogram_features.py
-   Uses src/aad_project/spectrogram_features.py to create WAV-level gamma features.
+   Creates WAV-level gamma/spectrogram features.
 
 2. Preprocess_gamma_eelbrain.py
-   Combines EEG data with gamma features and saves subject-level mTRF-ready .npz files.
+   Combines an existing subject-level EEG/preprocessed .npz file with gamma
+   features and saves a gamma-ready subject-level .npz file.
 
 3. mtrf_gamma_eelbrain.py
    Runs the backward Eelbrain gamma decoder.
 
-Default processed output:
-    data/processed/gamma/
+Typical input to step 2:
+    data/processed/sub-004_mtrf_env_onset.npz
 
-Default results output:
-    results_gamma/
+Typical output from step 2:
+    data/processed/gamma/sub-004_mtrf_env_onset_gamma_eelbrain.npz
 """
 
 import argparse
@@ -41,14 +58,26 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--bidsdir",
         type=Path,
-        required=True,
-        help="Root directory of the BIDS EEG dataset",
+        default=None,
+        help=(
+            "Root directory of the BIDS EEG dataset. Kept for compatibility, "
+            "but not passed to Preprocess_gamma_eelbrain.py in the current version."
+        ),
     )
     parser.add_argument(
         "--stimdir",
         type=Path,
         required=True,
         help="Directory containing WAV stimulus files",
+    )
+    parser.add_argument(
+        "--base-processed-dir",
+        type=Path,
+        default=Path("data/processed"),
+        help=(
+            "Directory containing the existing subject-level EEG/preprocessed input files, "
+            "for example sub-004_mtrf_env_onset.npz"
+        ),
     )
     parser.add_argument(
         "--spectrogram-dir",
@@ -110,35 +139,57 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--model-script",
         type=Path,
-        default=Path("scripts/mtrf_gamma_eelbrain.py"),
+        default=Path("src/aad_project/mtrf_gamma_eelbrain.py"),
         help="Script that runs the backward gamma Eelbrain decoder",
     )
 
-    # Expected subject-level input name created by preprocessing
+    # Existing input file created by the earlier env/onset preprocessing pipeline
     parser.add_argument(
-        "--input-template",
-        default="sub-{subject:03d}_mtrf_gamma.npz",
+        "--preprocess-input-template",
+        default="sub-{subject:03d}_mtrf_env_onset.npz",
         help=(
-            "Filename template for subject-level gamma files inside --processed-dir. "
+            "Filename template for the existing subject-level input file inside "
+            "--base-processed-dir. Available field: {subject:03d}"
+        ),
+    )
+
+    # Output file created by Preprocess_gamma_eelbrain.py and used by mtrf_gamma_eelbrain.py
+    parser.add_argument(
+        "--gamma-input-template",
+        default="sub-{subject:03d}_mtrf_env_onset_gamma_eelbrain.npz",
+        help=(
+            "Filename template for the subject-level gamma file inside --processed-dir. "
             "Available field: {subject:03d}"
+        ),
+    )
+
+    # Kept for command compatibility with old runs; not passed to current preprocess script
+    parser.add_argument(
+        "--audio-variant",
+        default="plain",
+        help=(
+            "Kept for compatibility with old commands. The current "
+            "Preprocess_gamma_eelbrain.py does not accept this argument."
+        ),
+    )
+    parser.add_argument(
+        "--overwrite",
+        action="store_true",
+        help=(
+            "If set, rerun preprocessing/model even if expected output files already exist. "
+            "This is handled by this wrapper where possible."
         ),
     )
 
     # Options passed to preprocessing
     parser.add_argument(
-        "--audio-variant",
-        default="plain",
-        help="Audio variant to pass to preprocessing, e.g. plain, woa, woacontrol",
-    )
-    parser.add_argument(
-        "--run-single-talker",
-        action="store_true",
-        help="Pass --run-single-talker to preprocessing if supported",
-    )
-    parser.add_argument(
-        "--overwrite",
-        action="store_true",
-        help="Pass --overwrite to preprocessing if supported",
+        "--crop-start-sec",
+        type=float,
+        default=None,
+        help=(
+            "Optional crop start in seconds passed to Preprocess_gamma_eelbrain.py. "
+            "Omit to use that script's default."
+        ),
     )
 
     # Options passed to model
@@ -191,8 +242,13 @@ def run_command(cmd: list[str], log_path: Path) -> None:
         )
 
 
-def subject_input_path(args: argparse.Namespace, subject: int) -> Path:
-    filename = args.input_template.format(subject=subject)
+def preprocess_input_path(args: argparse.Namespace, subject: int) -> Path:
+    filename = args.preprocess_input_template.format(subject=subject)
+    return args.base_processed_dir / filename
+
+
+def gamma_input_path(args: argparse.Namespace, subject: int) -> Path:
+    filename = args.gamma_input_template.format(subject=subject)
     return args.processed_dir / filename
 
 
@@ -225,43 +281,54 @@ def run_feature_step(args: argparse.Namespace) -> None:
 
 def run_preprocess_subject(args: argparse.Namespace, subject: int) -> None:
     sid = subject_id(subject)
+    input_path = preprocess_input_path(args, subject)
+    output_path = gamma_input_path(args, subject)
     log_path = args.results_dir / "logs" / sid / "preprocess_gamma.log"
+
+    if not input_path.exists():
+        raise FileNotFoundError(
+            f"Missing preprocessing input file for {sid}: {input_path}\n"
+            "This gamma step expects the normal EEG/env/onset preprocessing to have run first. "
+            "If your input files have another name, change --preprocess-input-template."
+        )
+
+    if output_path.exists() and not args.overwrite:
+        print(f"[{sid}] Skipping gamma preprocessing because output exists: {output_path}")
+        return
 
     cmd = [
         sys.executable,
         str(args.preprocess_script),
-        "--bidsdir",
-        str(args.bidsdir),
-        "--processed-dir",
-        str(args.processed_dir),
+        "--input",
+        str(input_path),
         "--spectrogram-dir",
         str(args.spectrogram_dir),
-        "--subject",
-        str(subject),
-        "--audio-variant",
-        args.audio_variant,
+        "--outdir",
+        str(args.processed_dir),
     ]
 
-    if args.run_single_talker:
-        cmd.append("--run-single-talker")
-
-    if args.overwrite:
-        cmd.append("--overwrite")
+    if args.crop_start_sec is not None:
+        cmd.extend(["--crop-start-sec", str(args.crop_start_sec)])
 
     run_command(cmd, log_path)
+
+    if not output_path.exists():
+        raise FileNotFoundError(
+            f"Preprocess step finished, but expected output file was not found for {sid}: {output_path}\n"
+            "Check the actual filename written in the log. If it differs, change --gamma-input-template."
+        )
 
 
 def run_model_subject(args: argparse.Namespace, subject: int) -> None:
     sid = subject_id(subject)
-    input_path = subject_input_path(args, subject)
+    input_path = gamma_input_path(args, subject)
     outdir = args.results_dir / sid
     log_path = args.results_dir / "logs" / sid / "mtrf_gamma.log"
 
     if not input_path.exists():
         raise FileNotFoundError(
             f"Missing subject-level gamma input file for {sid}: {input_path}\n"
-            "Check whether Preprocess_gamma_eelbrain.py creates the same filename. "
-            "If not, change --input-template."
+            "Run --step preprocess first, or change --gamma-input-template if the file has another name."
         )
 
     ensure_dir(outdir)
@@ -339,9 +406,12 @@ def main() -> None:
     print("Step:", args.step)
     print("BIDS dir:", args.bidsdir)
     print("Stim dir:", args.stimdir)
+    print("Base processed dir:", args.base_processed_dir)
     print("Spectrogram feature dir:", args.spectrogram_dir)
     print("Processed gamma dir:", args.processed_dir)
     print("Results dir:", args.results_dir)
+    print("Preprocess input template:", args.preprocess_input_template)
+    print("Gamma input template:", args.gamma_input_template)
     print("Subjects:", args.subjects)
     print("Max workers:", args.max_workers)
     print()

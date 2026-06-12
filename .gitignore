@@ -190,3 +190,6 @@ data/
 results_backward/
 results_baseline_all/
 results_env_onset
+results_env_onset/*
+results_gamma/
+data/processed/

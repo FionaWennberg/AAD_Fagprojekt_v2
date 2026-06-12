@@ -1,0 +1,27 @@
+{
+  "subject": "sub-023",
+  "input_path": "data/processed/env_onset/sub-023_mtrf_env_onset.npz",
+  "n_trials": 32,
+  "n_features": 2,
+  "predictor_names": [
+    "envelope",
+    "onset"
+  ],
+  "accuracy": 0.90625,
+  "config": {
+    "tstart": -0.5,
+    "tstop": 0.0,
+    "basis": 0.05,
+    "basis_window": "hamming",
+    "test": 1,
+    "partitions": null,
+    "error": "l2",
+    "selective_stopping": 1,
+    "scale_data": true,
+    "score_mode": "mean",
+    "feature_weights": [
+      1.0,
+      1.0
+    ]
+  }
+}

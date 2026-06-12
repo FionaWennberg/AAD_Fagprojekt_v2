@@ -1,13 +1,13 @@
 {
   "subject": "sub-004",
-  "input_path": "data\\processed\\sub-004_mtrf_env_onset.npz",
+  "input_path": "data/processed/env_onset/sub-004_mtrf_env_onset.npz",
   "n_trials": 32,
   "n_features": 2,
   "predictor_names": [
     "envelope",
     "onset"
   ],
-  "accuracy": 0.4375,
+  "accuracy": 0.9375,
   "config": {
     "tstart": -0.5,
     "tstop": 0.0,

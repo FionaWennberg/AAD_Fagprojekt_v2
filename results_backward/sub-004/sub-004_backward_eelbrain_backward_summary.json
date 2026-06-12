@@ -1,5 +1,5 @@
 {
-  "input_file": "data\\processed\\sub-004_backward_eelbrain.npz",
+  "input_file": "data/processed/sub-004_backward_eelbrain.npz",
   "fs_stim": 64.0,
   "fs_resp": 64.0,
   "decoder_config": {
@@ -66,214 +66,214 @@
   },
   "summary_two_talker": {
     "n_trials": 32,
-    "mean_r_att": 0.0057927943107616425,
-    "mean_r_ign": 0.005221841517274412,
-    "median_r_att": 0.0002253846020162432,
-    "median_r_ign": -0.002699575843269141,
-    "mean_r_att_minus_ign": 0.0005709527934872306,
-    "median_r_att_minus_ign": -0.004435551285256932,
-    "decoding_accuracy": 0.4375,
-    "n_correct": 14,
-    "eelbrain_r": 0.005109671331639727,
-    "eelbrain_r_rank": 0.007963827396642214,
-    "proportion_explained": -0.0005762660062025304,
-    "l1_residual": 59348.211467594374,
-    "l1_total": 59322.41764399078,
-    "l2_residual": 75819.667132886,
-    "l2_total": 75776.0000000006
+    "mean_r_att": 0.16846650509838051,
+    "mean_r_ign": 0.06865895159638426,
+    "median_r_att": 0.16281170970411746,
+    "median_r_ign": 0.0640450224025281,
+    "mean_r_att_minus_ign": 0.09980755350199627,
+    "median_r_att_minus_ign": 0.10407941528277456,
+    "decoding_accuracy": 0.90625,
+    "n_correct": 29,
+    "eelbrain_r": 0.16807079048734033,
+    "eelbrain_r_rank": 0.16238373841621812,
+    "proportion_explained": 0.026839654976777316,
+    "l1_residual": 58571.5071915938,
+    "l1_total": 59322.41764399082,
+    "l2_residual": 73742.19830447972,
+    "l2_total": 75776.00000000044
   },
   "summary_single_talker": null,
   "trial_results_two_talker": [
     {
       "trial_index": 0,
-      "r_att": -0.02553420882814742,
-      "r_ign": 0.0624418658965339,
-      "correct": 0
+      "r_att": 0.13458368542168786,
+      "r_ign": 0.06505127630534638,
+      "correct": 1
     },
     {
       "trial_index": 1,
-      "r_att": 0.004332166530808529,
-      "r_ign": -0.021861947893350015,
+      "r_att": 0.1574004360728565,
+      "r_ign": -0.00578276313301234,
       "correct": 1
     },
     {
       "trial_index": 2,
-      "r_att": -0.04254237313488243,
-      "r_ign": -0.010302649541450775,
-      "correct": 0
+      "r_att": 0.15457174852306152,
+      "r_ign": 0.13563807424253552,
+      "correct": 1
     },
     {
       "trial_index": 3,
-      "r_att": 0.022748781632865582,
-      "r_ign": 0.034233298219948305,
-      "correct": 0
+      "r_att": 0.13431277966932914,
+      "r_ign": 0.08629584612501638,
+      "correct": 1
     },
     {
       "trial_index": 4,
-      "r_att": 0.05315854038749618,
-      "r_ign": -0.021943971924810308,
+      "r_att": 0.2050610075207245,
+      "r_ign": 0.0965691379161509,
       "correct": 1
     },
     {
       "trial_index": 5,
-      "r_att": 0.0040632621950821,
-      "r_ign": 0.05837705618382102,
-      "correct": 0
+      "r_att": 0.19092236614382901,
+      "r_ign": 0.028521461342726144,
+      "correct": 1
     },
     {
       "trial_index": 6,
-      "r_att": -0.03489993892967435,
-      "r_ign": 0.036262487937193714,
-      "correct": 0
+      "r_att": 0.18412272449006195,
+      "r_ign": 0.017552618999740054,
+      "correct": 1
     },
     {
       "trial_index": 7,
-      "r_att": 0.020690266416246838,
-      "r_ign": -0.004141305562716166,
+      "r_att": 0.12158725817611574,
+      "r_ign": 0.08786063474686377,
       "correct": 1
     },
     {
       "trial_index": 8,
-      "r_att": 0.0631816058366694,
-      "r_ign": 0.09829067543065942,
-      "correct": 0
+      "r_att": 0.1682229833353784,
+      "r_ign": 0.06303876849970981,
+      "correct": 1
     },
     {
       "trial_index": 9,
-      "r_att": -0.011352080360859454,
-      "r_ign": -0.022831903159187466,
+      "r_att": 0.21151130963920828,
+      "r_ign": 0.04053821790944874,
       "correct": 1
     },
     {
       "trial_index": 10,
-      "r_att": 0.04386390405183199,
-      "r_ign": -0.019601559519624813,
-      "correct": 1
+      "r_att": 0.04513069830846807,
+      "r_ign": 0.07298222759941936,
+      "correct": 0
     },
     {
       "trial_index": 11,
-      "r_att": -0.029113162629989107,
-      "r_ign": -0.026025657840760025,
-      "correct": 0
+      "r_att": 0.1533951104076726,
+      "r_ign": 0.023903731326679355,
+      "correct": 1
     },
     {
       "trial_index": 12,
-      "r_att": 0.0068349445163903315,
-      "r_ign": 0.05274091582381661,
-      "correct": 0
+      "r_att": 0.19693445692945943,
+      "r_ign": 0.12719980768529196,
+      "correct": 1
     },
     {
       "trial_index": 13,
-      "r_att": -0.0053905459207592285,
-      "r_ign": -0.017090339046717848,
+      "r_att": 0.18436134109220229,
+      "r_ign": 0.16353668158878723,
       "correct": 1
     },
     {
       "trial_index": 14,
-      "r_att": 0.011334626258800417,
-      "r_ign": -0.021490012006127882,
-      "correct": 1
+      "r_att": 0.12314641109232206,
+      "r_ign": 0.1356071923066933,
+      "correct": 0
     },
     {
       "trial_index": 15,
-      "r_att": 0.07744501054448755,
-      "r_ign": 0.04712470692011639,
+      "r_att": 0.27601155786632364,
+      "r_ign": 0.051056981928587326,
       "correct": 1
     },
     {
       "trial_index": 16,
-      "r_att": -0.008701010651151152,
-      "r_ign": 0.11299000715808759,
-      "correct": 0
+      "r_att": 0.20206283526305566,
+      "r_ign": 0.05829266112677138,
+      "correct": 1
     },
     {
       "trial_index": 17,
-      "r_att": -0.017721814708545967,
-      "r_ign": -0.025764857134048136,
+      "r_att": 0.13120030893922202,
+      "r_ign": 0.10754403515875086,
       "correct": 1
     },
     {
       "trial_index": 18,
-      "r_att": -0.003612492991049614,
-      "r_ign": 0.01591944782832679,
-      "correct": 0
+      "r_att": 0.21651149444185244,
+      "r_ign": 0.04367223572116423,
+      "correct": 1
     },
     {
       "trial_index": 19,
-      "r_att": -0.022593018522570767,
-      "r_ign": 0.00523401126332135,
-      "correct": 0
+      "r_att": 0.1898611076761528,
+      "r_ign": 0.12444692267111308,
+      "correct": 1
     },
     {
       "trial_index": 20,
-      "r_att": 0.008182095135607057,
-      "r_ign": -0.06439425728615839,
+      "r_att": 0.2002037658510674,
+      "r_ign": 0.0437695493639415,
       "correct": 1
     },
     {
       "trial_index": 21,
-      "r_att": 0.052430297938664834,
-      "r_ign": -0.07615228453049327,
+      "r_att": 0.24072838444852104,
+      "r_ign": 0.05672748302681596,
       "correct": 1
     },
     {
       "trial_index": 22,
-      "r_att": -0.06296474825454794,
-      "r_ign": 0.0033903302171398556,
+      "r_att": 0.12231527742426443,
+      "r_ign": 0.1340374468562705,
       "correct": 0
     },
     {
       "trial_index": 23,
-      "r_att": -0.053038211085495994,
-      "r_ign": -0.04725461330421121,
-      "correct": 0
+      "r_att": 0.2075856088282188,
+      "r_ign": 0.08594676344198256,
+      "correct": 1
     },
     {
       "trial_index": 24,
-      "r_att": 0.0987079062557232,
-      "r_ign": -0.13336452073208893,
+      "r_att": 0.22883118385787293,
+      "r_ign": -0.0009647423042409494,
       "correct": 1
     },
     {
       "trial_index": 25,
-      "r_att": -0.025177381972414804,
-      "r_ign": 0.03868230664661809,
-      "correct": 0
+      "r_att": 0.14055724174616951,
+      "r_ign": 0.05112893256566789,
+      "correct": 1
     },
     {
       "trial_index": 26,
-      "r_att": -0.0418671135629217,
-      "r_ign": 0.04797671431976511,
-      "correct": 0
+      "r_att": 0.17934477393115986,
+      "r_ign": 0.0703273813064903,
+      "correct": 1
     },
     {
       "trial_index": 27,
-      "r_att": 0.04368620600519631,
-      "r_ign": -0.058735158352967685,
+      "r_att": 0.1422287995869687,
+      "r_ign": 0.07241739630495454,
       "correct": 1
     },
     {
       "trial_index": 28,
-      "r_att": -0.016037674190103185,
-      "r_ign": -0.0012578461238221162,
-      "correct": 0
+      "r_att": 0.12972974705348522,
+      "r_ign": 0.026755131323604686,
+      "correct": 1
     },
     {
       "trial_index": 29,
-      "r_att": 0.01207959960308258,
-      "r_ign": 0.0748601102934083,
-      "correct": 0
+      "r_att": 0.14347388982590328,
+      "r_ign": 0.07070629183865661,
+      "correct": 1
     },
     {
       "trial_index": 30,
-      "r_att": -0.024465303295114444,
-      "r_ign": -0.02158853025433037,
-      "correct": 0
+      "r_att": 0.14013040966063323,
+      "r_ign": 0.026521001285464415,
+      "correct": 1
     },
     {
       "trial_index": 31,
-      "r_att": 0.08764128367364724,
-      "r_ign": 0.07237640862689011,
+      "r_att": 0.13488745992492845,
+      "r_ign": 0.036188066006904614,
       "correct": 1
     }
   ],
@@ -281,10 +281,10 @@
   "n_timepoints": 2368,
   "trial_meta": [
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "singletalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t001.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t001.wav",
       "masker_path": null,
       "masker_delay_sec": null,
       "aligned_samples": 2368,
@@ -364,11 +364,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t002.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m002.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t002.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m002.wav",
       "masker_delay_sec": 3.095703125,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -447,11 +447,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t003.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m003.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t003.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m003.wav",
       "masker_delay_sec": 4.29296875,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -530,11 +530,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t004.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m004.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t004.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m004.wav",
       "masker_delay_sec": 3.009765625,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -613,10 +613,10 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "singletalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t005.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t005.wav",
       "masker_path": null,
       "masker_delay_sec": null,
       "aligned_samples": 2368,
@@ -696,11 +696,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t006.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m006.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t006.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m006.wav",
       "masker_delay_sec": 4.63671875,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -779,10 +779,10 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "singletalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t007.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t007.wav",
       "masker_path": null,
       "masker_delay_sec": null,
       "aligned_samples": 2368,
@@ -862,11 +862,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t008.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m008.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t008.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m008.wav",
       "masker_delay_sec": 4.3515625,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -945,10 +945,10 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "singletalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t009.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t009.wav",
       "masker_path": null,
       "masker_delay_sec": null,
       "aligned_samples": 2368,
@@ -1028,11 +1028,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t010.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m010.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t010.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m010.wav",
       "masker_delay_sec": 4.4140625,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -1111,11 +1111,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t011.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m011.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t011.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m011.wav",
       "masker_delay_sec": 4.78125,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -1194,11 +1194,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t012.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m012.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t012.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m012.wav",
       "masker_delay_sec": 3.048828125,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -1277,10 +1277,10 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "singletalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t013.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t013.wav",
       "masker_path": null,
       "masker_delay_sec": null,
       "aligned_samples": 2368,
@@ -1360,11 +1360,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t014.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m014.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t014.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m014.wav",
       "masker_delay_sec": 4.384765625,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -1443,11 +1443,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t015.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m015.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t015.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m015.wav",
       "masker_delay_sec": 3.564453125,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -1526,11 +1526,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t016.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m016.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t016.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m016.wav",
       "masker_delay_sec": 4.23046875,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -1609,10 +1609,10 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "singletalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t017.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t017.wav",
       "masker_path": null,
       "masker_delay_sec": null,
       "aligned_samples": 2368,
@@ -1692,11 +1692,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t018.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m018.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t018.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m018.wav",
       "masker_delay_sec": 3.208984375,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -1775,11 +1775,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t019.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m019.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t019.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m019.wav",
       "masker_delay_sec": 3.48828125,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -1858,10 +1858,10 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "singletalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t020.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t020.wav",
       "masker_path": null,
       "masker_delay_sec": null,
       "aligned_samples": 2368,
@@ -1941,11 +1941,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t021.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m021.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t021.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m021.wav",
       "masker_delay_sec": 3.775390625,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -2024,11 +2024,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t022.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m022.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t022.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m022.wav",
       "masker_delay_sec": 4.857421875,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -2107,10 +2107,10 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "singletalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t023.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t023.wav",
       "masker_path": null,
       "masker_delay_sec": null,
       "aligned_samples": 2368,
@@ -2190,11 +2190,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t024.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m024.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t024.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m024.wav",
       "masker_delay_sec": 4.9296875,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -2273,10 +2273,10 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "singletalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t025.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t025.wav",
       "masker_path": null,
       "masker_delay_sec": null,
       "aligned_samples": 2368,
@@ -2356,11 +2356,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t026.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m026.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t026.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m026.wav",
       "masker_delay_sec": 3.853515625,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -2439,11 +2439,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t027.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m027.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t027.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m027.wav",
       "masker_delay_sec": 3.470703125,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -2522,11 +2522,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t028.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m028.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t028.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m028.wav",
       "masker_delay_sec": 3.578125,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -2605,10 +2605,10 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "singletalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t029.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t029.wav",
       "masker_path": null,
       "masker_delay_sec": null,
       "aligned_samples": 2368,
@@ -2688,11 +2688,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t030.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m030.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t030.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m030.wav",
       "masker_delay_sec": 3.458984375,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -2771,11 +2771,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t031.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m031.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t031.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m031.wav",
       "masker_delay_sec": 4.083984375,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -2854,11 +2854,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t032.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m032.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t032.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m032.wav",
       "masker_delay_sec": 3.291015625,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -2937,10 +2937,10 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "singletalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t033.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t033.wav",
       "masker_path": null,
       "masker_delay_sec": null,
       "aligned_samples": 2368,
@@ -3020,11 +3020,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t034.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m034.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t034.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m034.wav",
       "masker_delay_sec": 4.1015625,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -3103,11 +3103,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t035.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m035.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t035.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m035.wav",
       "masker_delay_sec": 4.1640625,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -3186,10 +3186,10 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "singletalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t036.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t036.wav",
       "masker_path": null,
       "masker_delay_sec": null,
       "aligned_samples": 2368,
@@ -3269,10 +3269,10 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "singletalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t037.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t037.wav",
       "masker_path": null,
       "masker_delay_sec": null,
       "aligned_samples": 2368,
@@ -3352,11 +3352,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t038.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m038.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t038.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m038.wav",
       "masker_delay_sec": 4.478515625,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -3435,10 +3435,10 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "singletalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t039.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t039.wav",
       "masker_path": null,
       "masker_delay_sec": null,
       "aligned_samples": 2368,
@@ -3518,10 +3518,10 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "singletalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t040.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t040.wav",
       "masker_path": null,
       "masker_delay_sec": null,
       "aligned_samples": 2368,
@@ -3601,11 +3601,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t041.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m041.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t041.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m041.wav",
       "masker_delay_sec": 3.05078125,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -3684,11 +3684,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t042.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m042.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t042.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m042.wav",
       "masker_delay_sec": 3.162109375,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -3767,11 +3767,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t043.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m043.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t043.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m043.wav",
       "masker_delay_sec": 3.353515625,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -3850,11 +3850,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t044.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m044.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t044.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m044.wav",
       "masker_delay_sec": 3.7890625,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -3933,11 +3933,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t045.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m045.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t045.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m045.wav",
       "masker_delay_sec": 4.888671875,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -4016,11 +4016,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t046.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m046.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t046.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m046.wav",
       "masker_delay_sec": 4.447265625,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -4099,10 +4099,10 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "singletalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t047.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t047.wav",
       "masker_path": null,
       "masker_delay_sec": null,
       "aligned_samples": 2368,
@@ -4182,11 +4182,11 @@
       }
     },
     {
-      "run_bdf": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_eeg.bdf",
-      "events_path": "C:\\subset\\ds-eeg-snhl\\sub-004\\eeg\\sub-004_task-selectiveattention_events.tsv",
+      "run_bdf": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_eeg.bdf",
+      "events_path": "/work3/jhjort/ds-eeg-snhl/sub-004/eeg/sub-004_task-selectiveattention_events.tsv",
       "trial_kind": "twotalker",
-      "target_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\target\\t048.wav",
-      "masker_path": "C:\\subset\\ds-eeg-snhl\\stimuli_audio\\sub004\\masker\\m048.wav",
+      "target_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/target/t048.wav",
+      "masker_path": "/work3/jhjort/ds-eeg-snhl/stimuli/sub004/masker/m048.wav",
       "masker_delay_sec": 4.14453125,
       "aligned_samples": 2368,
       "aligned_seconds": 37.0,
@@ -4266,13 +4266,13 @@
     }
   ],
   "timings_sec": {
-    "load_and_stack_sec": 0.1263371000532061,
-    "make_ndvars_sec": 4.39196339994669,
-    "fit_two_talker_sec": 5902.111838300014,
-    "predict_and_summarize_sec": 1.1605942000169307,
-    "total_before_save_sec": 5907.790814100066,
-    "save_sec": 0.01209740003105253,
-    "total_sec": 5907.804014699999
+    "load_and_stack_sec": 0.8895933220046572,
+    "make_ndvars_sec": 22.245308738027234,
+    "fit_two_talker_sec": 14553.713020228024,
+    "predict_and_summarize_sec": 0.5454417889704928,
+    "total_before_save_sec": 14577.393398301036,
+    "save_sec": 0.036635600961744785,
+    "total_sec": 14577.434050448996
   },
   "notes": [
     "Single-talker model is optional because it can add substantial runtime.",
