@@ -6,7 +6,7 @@ from pymer4.models import glmer
 # --------------------------------------------------
 # 1. Load data
 # --------------------------------------------------
-df = pd.read_csv("statistics/aad_trial_level_results.csv")
+df = pd.read_csv("statistics1/aad_trial_level_results.csv")
 
 # Expected columns:
 #   subject   : subject ID (string)
@@ -207,8 +207,8 @@ print(pred_df)
 # --------------------------------------------------
 # 8. Save outputs for reporting
 # --------------------------------------------------
-fixed_effects.to_csv("statistics/glmm_fixed_effects.csv", index=False)
-pred_df.to_csv("statistics/glmm_predicted_probabilities.csv", index=False)
+fixed_effects.to_csv("statistics1/glmm_fixed_effects.csv", index=False)
+pred_df.to_csv("statistics1/glmm_predicted_probabilities.csv", index=False)
 
 # Optional: subject-level raw accuracies for descriptive plotting
 subject_acc = (
@@ -216,7 +216,7 @@ subject_acc = (
       .mean()
       .rename(columns={"correct": "mean_accuracy"})
 )
-subject_acc.to_csv("statistics/subject_level_mean_accuracy.csv", index=False)
+subject_acc.to_csv("statistics1/subject_level_mean_accuracy.csv", index=False)
 
 print("\nSaved:")
 print("  glmm_fixed_effects.csv")
