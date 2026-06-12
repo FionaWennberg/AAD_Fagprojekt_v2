@@ -188,3 +188,5 @@ data/
 
 # Ignore results
 results_backward/
+results_baseline_all/
+results_env_onset
