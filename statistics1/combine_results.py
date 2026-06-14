@@ -3,16 +3,16 @@ import json
 import pandas as pd
 
 # Folder containing one sub-xxx folder per subject
-results_dir = Path("results_baseline_all")
+results_dir = Path("results_baseline_all") # changed to results for envons
 
 # Output file
-out_path = Path("statistics") / "aad_trial_level_results.csv"
+out_path = Path("statistics1") / "aad_trial_level_results.csv" # changed name of output for new results
 out_path.parent.mkdir(parents=True, exist_ok=True)
 
 rows = []
 
 summary_paths = sorted(
-    results_dir.glob("sub-*/sub-*_backward_eelbrain_backward_summary.json")
+    results_dir.glob("sub-*/sub-*_backward_eelbrain_backward_summary.json") 
 )
 
 if len(summary_paths) == 0:
