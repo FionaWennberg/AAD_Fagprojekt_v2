@@ -1,4 +1,4 @@
-comparison,term_used,interpretation,estimate_log_odds,odds_ratio,predicted_probability,SE,z,p_value,ci_low_log_odds,ci_high_log_odds,ci_low_odds_ratio,ci_high_odds_ratio,p_value_formatted
-NH vs chance,Intercept from NH-reference model,NH decoding accuracy compared with 50% chance,2.3846,10.8542,0.9156,0.2508,9.5088,0.0,,,,,< .001
-HI vs chance,Intercept from HI-reference model,HI decoding accuracy compared with 50% chance,2.8793,17.802,0.9468,0.0012,2465.0133,0.0,,,,,< .001
-HI vs NH,group_HI from NH-reference model,Difference in decoding accuracy between HI and NH,0.4811,1.6178,0.618,0.3586,1.3413,0.1798,,,,,0.180
+comparison,model_used,term_used,interpretation,estimate_log_odds,odds_ratio,predicted_probability,SE,z,p_value,ci_low_log_odds,ci_high_log_odds,ci_low_odds_ratio,ci_high_odds_ratio,p_value_formatted,diagnostic
+NH vs chance,NH-only GLMM,Intercept,NH decoding accuracy compared with 50% chance,2.3495,10.4801,0.9129,0.2367,9.9257,0.0,,,,,< .001,OK
+HI vs chance,HI-only GLMM,Intercept,HI decoding accuracy compared with 50% chance,2.9521,19.1457,0.9504,0.337,8.7606,0.0,,,,,< .001,OK
+HI vs NH,Full GLMM,group_HI,Difference in decoding accuracy between HI and NH,0.4811,1.6178,,0.3586,1.3413,0.1798,,,,,0.180,OK
