@@ -1,0 +1,4 @@
+comparison,model_used,term_used,interpretation,estimate_log_odds,odds_ratio,predicted_probability,SE,z,p_value,ci_low_log_odds,ci_high_log_odds,ci_low_odds_ratio,ci_high_odds_ratio,p_value_formatted,diagnostic
+NH vs chance,NH-only GLMM,Intercept,NH decoding accuracy compared with 50% chance,2.4251,11.3032,0.9187,0.2546,9.5259,0.0,1.9261,2.9241,6.8628,18.6168,< .001,OK
+HI vs chance,HI-only GLMM,Intercept,HI decoding accuracy compared with 50% chance,2.6169,13.6929,0.9319,0.2767,9.4562,0.0,2.0745,3.1593,7.9604,23.5537,< .001,OK
+HI vs NH,Full GLMM,group_HI,Difference in decoding accuracy between HI and NH,0.1659,1.1805,,0.3533,0.4696,0.6387,-0.5266,0.8584,0.5906,2.3595,0.639,OK
